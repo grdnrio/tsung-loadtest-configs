@@ -1,0 +1,118 @@
+<tsung loglevel="notice" version="1.0">
+
+	<!-- Client side setup -->
+	<clients>
+		<client host="localhost" use_controller_vm="true" maxusers="30000" />
+	</clients>
+
+	<!-- Server side setup -->
+	<servers>
+		<server host="73f7j2.vc.c4.catn.com" port="80" type="tcp"></server>
+	</servers>
+
+	<!-- to start os monitoring (cpu, network, memory). Use an erlang
+	agent on the remote machine or SNMP. erlang is the default -->
+	<!--<monitoring>
+		<monitor host="myserver" type="snmp"></monitor>
+	</monitoring>-->
+
+	<load loop="0">
+		<!-- several arrival phases can be set: for each phase, you can set
+		the mean inter-arrival time between new clients and the phase
+		duration -->
+		<arrivalphase phase="1" duration="2" unit="minute">
+			<users interarrival="1" unit="minute"></users>
+		</arrivalphase>
+	</load>
+
+	<options>
+		<option type="ts_http" name="user_agent">
+			<user_agent probability="10">Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1</user_agent>
+			<user_agent probability="5">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8) AppleWebKit/536.25 (KHTML, like Gecko) Version/6.0 Safari/536.25</user_agent>
+			<user_agent probability="5">Mozilla/5.0 (Windows NT 5.1; rv:14.0) Gecko/20100101 Firefox/14.0.1</user_agent>
+			<user_agent probability="4">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.60 Safari/537.1</user_agent>
+			<user_agent probability="4">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.83 Safari/537.1</user_agent>
+			<user_agent probability="3">Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)</user_agent>
+			<user_agent probability="3">Mozilla/5.0 (Windows NT 6.1; rv:14.0) Gecko/20100101 Firefox/14.0.1</user_agent>
+			<user_agent probability="3">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1</user_agent>
+			<user_agent probability="3">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11</user_agent>
+			<user_agent probability="3">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/536.25 (KHTML, like Gecko) Version/6.0 Safari/536.25</user_agent>
+			<user_agent probability="2">Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B206 Safari/7534.48.3</user_agent>
+			<user_agent probability="2">Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:14.0) Gecko/20100101 Firefox/14.0.1</user_agent>
+			<user_agent probability="2">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.75 Safari/537.1</user_agent>
+			<user_agent probability="2">Mozilla/5.0 (iPad; CPU OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B206 Safari/7534.48.3</user_agent>
+			<user_agent probability="2">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2</user_agent>
+			<user_agent probability="2">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.57 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:14.0) Gecko/20100101 Firefox/14.0.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:14.0) Gecko/20100101 Firefox/14.0.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.60 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Linux; U; Android 2.2; fr-fr; Desire_A8181 Build/FRF91) App3leWebKit/53.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:14.0) Gecko/20100101 Firefox/14.0.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.57 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.60 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.83 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 5.1) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.83 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2</user_agent>
+			<user_agent probability="1">Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.1; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0</user_agent>
+			<user_agent probability="1">Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; FunWebProducts; .NET CLR 1.1.4322; PeoplePal 6.2)</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.57 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.109 Safari/535.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.82 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:14.0) Gecko/20100101 Firefox/14.0.1</user_agent>
+			<user_agent probability="1">Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; .NET CLR 1.1.4322)</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) ; .NET CLR 3.5.30729)</user_agent>
+			<user_agent probability="1">Mozilla/4.0 (compatible; MSIE 6.0; MSIE 5.5; Windows NT 5.0) Opera 7.02 Bork-edition [en]</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1</user_agent>
+			<user_agent probability="1">Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.1; rv:2.0b7pre) Gecko/20100921 Firefox/4.0b7pre</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.75 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 5.1; rv:5.0.1) Gecko/20100101 Firefox/5.0.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.5) Gecko/2008120122 Firefox/3.0.5</user_agent>
+			<user_agent probability="1">Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; MRA 5.8 (build 4157); .NET CLR 2.0.50727; AskTbPTV/5.11.3.15590)</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.1; rv:5.0) Gecko/20100101 Firefox/5.02</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.75 Safari/537.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.0; rv:14.0) Gecko/20100101 Firefox/14.0.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 5.1; U; en) Opera 8.01</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0.1</user_agent>
+			<user_agent probability="1">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11</user_agent>
+			<user_agent probability="1">Opera/9.80 (Windows NT 5.1; U; en) Presto/2.10.229 Version/11.60</user_agent>
+		</option>
+	</options>
+
+	<!-- start a session for a http user. the probability is the
+	frequency of this type os session. The sum of all session's
+	probabilities must be 100 -->
+
+	<sessions>
+
+		<session name='simple-wordpress' probability='40'  type='ts_http'>
+			<request> <http url="/" method="GET" version="1.1"></http> </request>
+			<request> <http url="/wordpress" method="GET" version="1.1" if_modified_since="Fri, 14 Nov 2003 02:43:31 GMT"></http> </request>
+			<thinktime random='true' value='1'/>
+			<request> <http url="/wordpress.?p=1" method="GET" version="1.1" if_modified_since="Fri, 14 Nov 2003 02:43:31 GMT"></http> </request>
+			<thinktime random='true' value='2'/>
+		</session>
+		
+		<session name="wordpress-only-login" probability="60" type="ts_http">
+			<request> <http url="/wordpress/?page_id=2" method="GET" version="1.1"></http> </request>
+			<thinktime value="10" random="true"></thinktime>
+			<request> <http url="/wordpress/?m=201307" method="GET" version="1.1" if_modified_since="Fri, 14 Nov 2003 02:43:31 GMT"></http> </request>
+			<thinktime value="10" random="true"></thinktime>
+			<request> <http url="/wordpress/wp-login.php" method="GET" version="1.1" if_modified_since="Fri, 14 Nov 2003 02:43:31 GMT"></http> </request>
+		</session>
+
+	</sessions>
+
+</tsung>
